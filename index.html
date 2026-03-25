@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>就蛋糕 J.CAKE | 快閃行程</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 載入圓潤風格的字體 */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap');
+        
+        :root {
+            --brand-brown: #785241;
+            --brand-cream: #fdf8f5;
+            --brand-gold: #c6a667;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--brand-cream);
+            color: var(--brand-brown);
+        }
+
+        .rounded-brand {
+            border-radius: 24px;
+        }
+
+        .bg-wood {
+            background: linear-gradient(135deg, #785241 0%, #5d3f32 100%);
+        }
+
+        .location-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(120, 82, 65, 0.1);
+        }
+
+        .active-day {
+            background-color: #fff;
+            border: 2px solid var(--brand-gold);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -5px rgba(120, 82, 65, 0.15);
+        }
+
+        .social-icon {
+            transition: transform 0.2s;
+        }
+        .social-icon:active {
+            transform: scale(0.9);
+        }
+
+        /* 模擬圓體外觀 */
+        h1, h2, p, span {
+            letter-spacing: 0.02em;
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-12">
+
+    <!-- Header Section -->
+    <header class="bg-wood text-white pt-12 pb-16 px-6 text-center rounded-b-[40px] shadow-lg relative">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px;"></div>
+        
+        <div class="relative z-10">
+            <!-- Logo Container -->
+            <div class="mb-6 relative inline-block">
+                <div class="w-28 h-28 bg-white rounded-full p-1 shadow-xl mx-auto overflow-hidden">
+                    <img src="https://lh3.googleusercontent.com/d/1pJlkCrYfPC_dlZKUIgnmw0SSQ8ZXaecD" 
+                         alt="就蛋糕 Logo" 
+                         class="w-full h-full object-cover rounded-full"
+                         onerror="this.src='https://ui-avatars.com/api/?name=J+Cake&background=785241&color=fff&size=128'">
+                </div>
+                <div class="absolute -bottom-2 -right-2 bg-yellow-400 text-brown-900 px-3 py-1 rounded-full text-xs font-bold shadow-md border-2 border-white">
+                    手作甜點
+                </div>
+            </div>
+
+            <h1 class="text-3xl font-bold tracking-widest mb-2">就蛋糕 J.CAKE</h1>
+            <div id="current-date-box" class="inline-flex items-center space-x-2 bg-black/20 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20">
+                <span id="current-date" class="text-xs font-medium">載入中...</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Schedule -->
+    <main class="max-w-md mx-auto -mt-8 px-5 space-y-4 relative z-20">
+        
+        <!-- Thursday -->
+        <div id="day-4" class="location-card bg-white/90 backdrop-blur-sm rounded-brand p-6 flex items-center justify-between shadow-sm">
+            <div class="flex items-center space-x-5">
+                <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-700 flex flex-col items-center justify-center shrink-0 border border-amber-100">
+                    <span class="text-[10px] uppercase opacity-60">Thu</span>
+                    <span class="text-xl font-bold">四</span>
+                </div>
+                <div>
+                    <h2 class="text-lg font-bold">卓蘭夜市</h2>
+                    <p class="text-amber-600 text-sm font-medium mb-0.5">16:00 - 賣完為止</p>
+                    <p class="text-gray-400 text-[11px] flex items-center">
+                        <i class="fa-solid fa-location-dot mr-1"></i> 苗栗縣卓蘭鎮中正路11-1號
+                    </p>
+                </div>
+            </div>
+            <a href="https://www.google.com/maps/search/苗栗縣卓蘭鎮中正路11-1號" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-50 text-gray-400 hover:bg-amber-100 hover:text-amber-600 transition-all">
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+        </div>
+
+        <!-- Friday -->
+        <div id="day-5" class="location-card bg-white/90 backdrop-blur-sm rounded-brand p-6 flex items-center justify-between shadow-sm">
+            <div class="flex items-center space-x-5">
+                <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-700 flex flex-col items-center justify-center shrink-0 border border-amber-100">
+                    <span class="text-[10px] uppercase opacity-60">Fri</span>
+                    <span class="text-xl font-bold">五</span>
+                </div>
+                <div>
+                    <h2 class="text-lg font-bold">雅潭夜市</h2>
+                    <p class="text-amber-600 text-sm font-medium mb-0.5">17:30 - 22:30</p>
+                    <p class="text-gray-400 text-[11px] flex items-center">
+                        <i class="fa-solid fa-location-dot mr-1"></i> 臺中市大雅區雅潭路四段311號
+                    </p>
+                </div>
+            </div>
+            <a href="https://www.google.com/maps/search/臺中市大雅區雅潭路四段311號" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-50 text-gray-400 hover:bg-amber-100 hover:text-amber-600 transition-all">
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+        </div>
+
+        <!-- Saturday -->
+        <div id="day-6" class="location-card bg-white/90 backdrop-blur-sm rounded-brand p-6 flex items-center justify-between shadow-sm">
+            <div class="flex items-center space-x-5">
+                <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-700 flex flex-col items-center justify-center shrink-0 border border-amber-100">
+                    <span class="text-[10px] uppercase opacity-60">Sat</span>
+                    <span class="text-xl font-bold">六</span>
+                </div>
+                <div>
+                    <h2 class="text-lg font-bold">東勢夜市</h2>
+                    <p class="text-amber-600 text-sm font-medium mb-0.5">16:00 - 賣完為止</p>
+                    <p class="text-gray-400 text-[11px] flex items-center">
+                        <i class="fa-solid fa-location-dot mr-1"></i> 台中市東勢區中山路13號
+                    </p>
+                </div>
+            </div>
+            <a href="https://www.google.com/maps/search/台中市東勢區中山路13號" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-50 text-gray-400 hover:bg-amber-100 hover:text-amber-600 transition-all">
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="grid grid-cols-3 gap-4 pt-4">
+            <a href="https://lin.ee/nnD8fD3" target="_blank" class="social-icon bg-[#06C755] text-white rounded-2xl py-3 flex flex-col items-center shadow-md">
+                <i class="fa-brands fa-line text-2xl mb-1"></i>
+                <span class="text-[10px] font-bold">預約領取</span>
+            </a>
+            <a href="https://www.instagram.com/j_cake.1212/" target="_blank" class="social-icon bg-gradient-to-tr from-[#F58529] via-[#D62976] to-[#962fbf] text-white rounded-2xl py-3 flex flex-col items-center shadow-md">
+                <i class="fa-brands fa-instagram text-2xl mb-1"></i>
+                <span class="text-[10px] font-bold">每日動態</span>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61570302605750" target="_blank" class="social-icon bg-[#1877F2] text-white rounded-2xl py-3 flex flex-col items-center shadow-md">
+                <i class="fa-brands fa-facebook-f text-2xl mb-1"></i>
+                <span class="text-[10px] font-bold">臉書專頁</span>
+            </a>
+        </div>
+
+        <!-- Info Section -->
+        <div class="bg-amber-100/50 rounded-3xl p-5 border border-amber-200/50">
+            <h3 class="text-sm font-bold flex items-center mb-2">
+                <i class="fa-solid fa-cookie-bite mr-2 text-amber-600"></i>
+                關於 就蛋糕
+            </h3>
+            <p class="text-[11px] leading-relaxed text-gray-600">
+                我們堅持每日新鮮製作，將最純粹的美味帶到夜市街頭。由於是手工限量，如需確保能吃到特定品項，歡迎點擊上方 <strong>LINE 按鈕</strong> 預約保留喔！
+            </p>
+        </div>
+    </main>
+
+    <footer class="mt-12 text-center">
+        <div class="flex justify-center space-x-4 mb-4 opacity-30">
+            <div class="w-12 h-[1px] bg-current mt-2"></div>
+            <i class="fa-solid fa-cake-candles text-xs"></i>
+            <div class="w-12 h-[1px] bg-current mt-2"></div>
+        </div>
+        <p class="text-[10px] tracking-widest opacity-40 uppercase">Handmade Dessert • Pop-up Store</p>
+        <p class="text-[10px] opacity-40 mt-1">© 2024 J.CAKE</p>
+    </footer>
+
+    <script>
+        window.onload = function() {
+            const now = new Date();
+            const days = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            const dayNum = now.getDay();
+            
+            // 顯示當前日期
+            const dateString = `${now.getMonth() + 1}月${now.getDate()}日 ${days[dayNum]}`;
+            document.getElementById('current-date').innerText = '今日：' + dateString;
+
+            // 高亮邏輯
+            const todayCard = document.getElementById('day-' + dayNum);
+            if (todayCard) {
+                todayCard.classList.add('active-day');
+                
+                // 插入今日標籤
+                const badge = document.createElement('div');
+                badge.className = 'absolute -top-3 left-6 bg-amber-600 text-white text-[10px] px-3 py-1 rounded-full font-bold shadow-lg z-30 flex items-center';
+                badge.innerHTML = '<span class="relative flex h-2 w-2 mr-1.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span></span> 今日出攤中';
+                todayCard.style.position = 'relative';
+                todayCard.prepend(badge);
+            }
+        };
+    </script>
+</body>
+</html>
