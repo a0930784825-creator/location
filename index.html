@@ -3,55 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>就蛋糕 J.CAKE | 清新風格行程</title>
+    <title>就蛋糕 J.CAKE | 溫潤風格行程</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Noto+Serif+TC:wght@400;700&display=swap');
+        /* 引入圓體風格的字體 */
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap');
         
         :root {
             --soft-beige: #F9F7F2;
             --muted-brown: #8D7765;
             --deep-taupe: #5D534A;
             --accent-gold: #D4AF37;
+            --warning-peach: #FFF5F2;
         }
 
         body {
-            font-family: 'Noto Serif TC', serif;
+            /* 設定全局字體為圓體感強的組合 */
+            font-family: 'Quicksand', 'Noto Sans TC', sans-serif;
             background-color: var(--soft-beige);
             color: var(--deep-taupe);
             overflow-x: hidden;
+            letter-spacing: 0.02em;
+        }
+
+        /* 強調圓角的通用樣式 */
+        .rounded-full-style {
+            border-radius: 9999px;
         }
 
         .english-font {
-            font-family: 'Bodoni Moda', serif;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
         }
 
-        /* 玻璃擬態效果 */
+        /* 玻璃擬態效果 - 增加圓潤度 */
         .glass-card {
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            border: 1.5px solid rgba(255, 255, 255, 0.8);
             transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            border-radius: 24px;
         }
 
         .location-card:hover {
             background: rgba(255, 255, 255, 1);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(141, 119, 101, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(141, 119, 101, 0.1);
         }
 
         /* 今日標記樣式 */
         .active-day-minimal {
             background: #fff !important;
-            border-left: 4px solid var(--muted-brown) !important;
+            border: 2px solid var(--muted-brown) !important;
             box-shadow: 0 15px 40px rgba(141, 119, 101, 0.15);
         }
 
-        /* 社交圖示優化 */
         .btn-social {
             transition: all 0.3s;
             border: 1px solid rgba(141, 119, 101, 0.2);
+            border-radius: 20px;
         }
         .btn-social:hover {
             background-color: white;
@@ -59,151 +70,174 @@
             transform: scale(1.05);
         }
 
-        /* 裝飾性元素 */
         .ornament {
-            width: 40px;
-            height: 1px;
+            width: 30px;
+            height: 2px;
             background: var(--muted-brown);
-            opacity: 0.3;
+            opacity: 0.2;
+            border-radius: 2px;
+        }
+
+        .weather-notice {
+            background: var(--warning-peach);
+            border: 2px dashed rgba(141, 119, 101, 0.15);
+            border-radius: 18px;
+            letter-spacing: 0.02em;
         }
 
         /* 淡入動畫 */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(12px); }
             to { opacity: 1; transform: translateY(0); }
         }
         .animate-up {
             animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        /* 讓中文字更圓潤的微調 */
+        h1, h3, p, span {
+            -webkit-font-smoothing: antialiased;
+            font-weight: 500;
+        }
+        b, strong {
+            font-weight: 700;
         }
     </style>
 </head>
 <body class="min-h-screen">
 
     <!-- 頂部 Header -->
-    <header class="pt-20 pb-16 px-8 text-center">
-        <div class="relative inline-block mb-8 animate-up">
-            <div class="w-24 h-24 mx-auto rounded-full border border-stone-200 p-1 relative z-10">
+    <header class="pt-16 pb-6 px-8 text-center">
+        <div class="relative inline-block mb-6 animate-up">
+            <div class="w-20 h-20 mx-auto rounded-full border-2 border-stone-100 p-1 relative z-10 bg-white">
                 <img src="https://lh3.googleusercontent.com/d/1pJlkCrYfPC_dlZKUIgnmw0SSQ8ZXaecD" 
                      alt="就蛋糕 Logo" 
-                     class="w-full h-full object-cover rounded-full filter grayscale-[20%]"
+                     class="w-full h-full object-cover rounded-full"
                      onerror="this.src='https://ui-avatars.com/api/?name=J+Cake&background=8D7765&color=fff&size=200'">
             </div>
-            <!-- 背景裝飾圓圈 -->
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-white/40 rounded-full blur-2xl -z-0"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 bg-white/40 rounded-full blur-2xl -z-0"></div>
         </div>
 
         <div class="animate-up" style="animation-delay: 0.2s">
-            <h2 class="english-font italic text-lg text-stone-400 mb-1 tracking-[0.3em]">Handmade</h2>
-            <h1 class="text-3xl font-light tracking-[0.4em] text-stone-800 mb-4">就蛋糕 J.CAKE</h1>
+            <h1 class="text-2xl font-bold tracking-widest text-stone-800 mb-4">就蛋糕 J.CAKE</h1>
             
-            <div class="flex items-center justify-center space-x-3 mb-2">
+            <div class="flex items-center justify-center space-x-4 mb-6">
                 <div class="ornament"></div>
-                <p id="current-date" class="text-xs tracking-widest text-stone-500 uppercase">CALENDAR LOADING</p>
+                <p id="current-date" class="english-font text-xs tracking-widest text-stone-400">CALENDAR LOADING</p>
                 <div class="ornament"></div>
+            </div>
+
+            <!-- 天氣提醒 (明顯且圓潤) -->
+            <div class="max-w-[300px] mx-auto weather-notice py-4 px-5 mb-2 animate-up" style="animation-delay: 0.3s">
+                <p class="text-[13px] leading-relaxed text-stone-500 font-bold">
+                    <i class="fa-solid fa-cloud-sun-rain mr-1.5 text-orange-300"></i>
+                    若天氣不佳我們不會出攤喲！<br>
+                    當天會在粉專公告，出發前先詢問一下喲！
+                </p>
             </div>
         </div>
     </header>
 
     <!-- 行程內容區 -->
-    <main class="max-w-md mx-auto px-8 pb-20 space-y-6">
+    <main class="max-w-md mx-auto px-8 pb-20 space-y-5">
         
         <!-- 週五行程 -->
-        <div id="day-5" class="location-card glass-card rounded-2xl p-6 relative overflow-hidden animate-up" style="animation-delay: 0.4s">
+        <div id="day-5" class="location-card glass-card p-6 relative overflow-hidden animate-up" style="animation-delay: 0.4s">
             <div class="flex justify-between items-start">
                 <div>
-                    <div class="flex items-baseline space-x-3 mb-1">
-                        <span class="text-2xl font-bold italic opacity-20">五</span>
-                        <h3 class="text-xl font-bold tracking-widest text-stone-700">雅潭夜市</h3>
+                    <div class="flex items-baseline space-x-3 mb-2">
+                        <span class="text-3xl font-bold italic text-stone-200">五</span>
+                        <h3 class="text-xl font-bold tracking-wider text-stone-700">雅潭夜市</h3>
                     </div>
-                    <div class="space-y-1">
-                        <p class="text-xs text-stone-500 flex items-center">
-                            <i class="fa-regular fa-clock mr-2 opacity-60"></i> 17:30 — 22:30
+                    <div class="space-y-1.5">
+                        <p class="text-[13px] text-stone-500 flex items-center font-medium">
+                            <i class="fa-regular fa-clock mr-2 text-stone-300"></i> 17:30 — 22:30
                         </p>
-                        <p class="text-[10px] text-stone-400 flex items-center">
-                            <i class="fa-solid fa-location-dot mr-2 opacity-60"></i> 臺中市大雅區雅潭路四段311號
+                        <p class="text-[11px] text-stone-400 flex items-center leading-tight">
+                            <i class="fa-solid fa-location-dot mr-2 text-stone-300"></i> 臺中市大雅區雅潭路四段311號
                         </p>
                     </div>
                 </div>
-                <a href="https://www.google.com/maps/search/?api=1&query=雅潭夜市" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full border border-stone-100 bg-white/50 text-stone-400 hover:text-stone-700 transition-colors">
-                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                <a href="https://www.google.com/maps/search/?api=1&query=雅潭夜市" target="_blank" class="w-11 h-11 flex items-center justify-center rounded-2xl border border-stone-100 bg-white/80 text-stone-400 hover:text-stone-700 hover:bg-white transition-all shadow-sm">
+                    <i class="fa-solid fa-map-location-dot text-sm"></i>
                 </a>
             </div>
         </div>
 
         <!-- 週六行程 -->
-        <div id="day-6" class="location-card glass-card rounded-2xl p-6 relative overflow-hidden animate-up" style="animation-delay: 0.5s">
+        <div id="day-6" class="location-card glass-card p-6 relative overflow-hidden animate-up" style="animation-delay: 0.5s">
             <div class="flex justify-between items-start">
                 <div>
-                    <div class="flex items-baseline space-x-3 mb-1">
-                        <span class="text-2xl font-bold italic opacity-20">六</span>
-                        <h3 class="text-xl font-bold tracking-widest text-stone-700">東勢夜市</h3>
+                    <div class="flex items-baseline space-x-3 mb-2">
+                        <span class="text-3xl font-bold italic text-stone-200">六</span>
+                        <h3 class="text-xl font-bold tracking-wider text-stone-700">東勢夜市</h3>
                     </div>
-                    <div class="space-y-1">
-                        <p class="text-xs text-stone-500 flex items-center">
-                            <i class="fa-regular fa-clock mr-2 opacity-60"></i> 16:00 — 售完為止
+                    <div class="space-y-1.5">
+                        <p class="text-[13px] text-stone-500 flex items-center font-medium">
+                            <i class="fa-regular fa-clock mr-2 text-stone-300"></i> 16:00 — 售完為止
                         </p>
-                        <p class="text-[10px] text-stone-400 flex items-center">
-                            <i class="fa-solid fa-location-dot mr-2 opacity-60"></i> 台中市東勢區中山路13號
+                        <p class="text-[11px] text-stone-400 flex items-center leading-tight">
+                            <i class="fa-solid fa-location-dot mr-2 text-stone-300"></i> 台中市東勢區中山路13號
                         </p>
                     </div>
                 </div>
-                <a href="https://www.google.com/maps/search/?api=1&query=東勢夜市" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full border border-stone-100 bg-white/50 text-stone-400 hover:text-stone-700 transition-colors">
-                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                <a href="https://www.google.com/maps/search/?api=1&query=東勢夜市" target="_blank" class="w-11 h-11 flex items-center justify-center rounded-2xl border border-stone-100 bg-white/80 text-stone-400 hover:text-stone-700 hover:bg-white transition-all shadow-sm">
+                    <i class="fa-solid fa-map-location-dot text-sm"></i>
                 </a>
             </div>
         </div>
 
         <!-- 週日行程 -->
-        <div id="day-0" class="location-card glass-card rounded-2xl p-6 relative overflow-hidden animate-up" style="animation-delay: 0.6s">
+        <div id="day-0" class="location-card glass-card p-6 relative overflow-hidden animate-up" style="animation-delay: 0.6s">
             <div class="flex justify-between items-start">
                 <div>
-                    <div class="flex items-baseline space-x-3 mb-1">
-                        <span class="text-2xl font-bold italic opacity-20">日</span>
-                        <h3 class="text-xl font-bold tracking-widest text-stone-700">總站夜市</h3>
+                    <div class="flex items-baseline space-x-3 mb-2">
+                        <span class="text-3xl font-bold italic text-stone-200">日</span>
+                        <h3 class="text-xl font-bold tracking-wider text-stone-700">總站夜市</h3>
                     </div>
-                    <div class="space-y-1">
-                        <p class="text-xs text-stone-500 flex items-center">
-                            <i class="fa-regular fa-clock mr-2 opacity-60"></i> 17:00 — 售完為止
+                    <div class="space-y-1.5">
+                        <p class="text-[13px] text-stone-500 flex items-center font-medium">
+                            <i class="fa-regular fa-clock mr-2 text-stone-300"></i> 17:00 — 售完為止
                         </p>
-                        <p class="text-[10px] text-stone-400 flex items-center">
-                            <i class="fa-solid fa-location-dot mr-2 opacity-60"></i> 台中市北屯區敦富路與敦富一街口
+                        <p class="text-[11px] text-stone-400 flex items-center leading-tight">
+                            <i class="fa-solid fa-location-dot mr-2 text-stone-300"></i> 台中市北屯區敦富路與敦富一街口
                         </p>
                     </div>
                 </div>
-                <a href="https://www.google.com/maps/search/?api=1&query=總站夜市" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full border border-stone-100 bg-white/50 text-stone-400 hover:text-stone-700 transition-colors">
-                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                <a href="https://www.google.com/maps/search/?api=1&query=總站夜市" target="_blank" class="w-11 h-11 flex items-center justify-center rounded-2xl border border-stone-100 bg-white/80 text-stone-400 hover:text-stone-700 hover:bg-white transition-all shadow-sm">
+                    <i class="fa-solid fa-map-location-dot text-sm"></i>
                 </a>
             </div>
         </div>
 
         <!-- 社交互動 -->
-        <div class="pt-8 grid grid-cols-3 gap-6 animate-up" style="animation-delay: 0.7s">
-            <a href="https://lin.ee/nnD8fD3" target="_blank" class="btn-social bg-white/50 p-4 rounded-xl flex flex-col items-center">
+        <div class="pt-6 grid grid-cols-3 gap-5 animate-up" style="animation-delay: 0.7s">
+            <a href="https://lin.ee/nnD8fD3" target="_blank" class="btn-social bg-white/50 p-4 flex flex-col items-center">
                 <i class="fa-brands fa-line text-2xl text-stone-400 mb-2"></i>
-                <span class="text-[10px] tracking-widest font-bold opacity-60 uppercase">Reserve</span>
+                <span class="english-font text-[10px] tracking-widest opacity-60">RESERVE</span>
             </a>
-            <a href="https://www.instagram.com/j_cake.1212/" target="_blank" class="btn-social bg-white/50 p-4 rounded-xl flex flex-col items-center">
+            <a href="https://www.instagram.com/j_cake.1212/" target="_blank" class="btn-social bg-white/50 p-4 flex flex-col items-center">
                 <i class="fa-brands fa-instagram text-2xl text-stone-400 mb-2"></i>
-                <span class="text-[10px] tracking-widest font-bold opacity-60 uppercase">Daily</span>
+                <span class="english-font text-[10px] tracking-widest opacity-60">DAILY</span>
             </a>
-            <a href="https://www.facebook.com/profile.php?id=61570302605750" target="_blank" class="btn-social bg-white/50 p-4 rounded-xl flex flex-col items-center">
+            <a href="https://www.facebook.com/profile.php?id=61570302605750" target="_blank" class="btn-social bg-white/50 p-4 flex flex-col items-center">
                 <i class="fa-brands fa-facebook-f text-2xl text-stone-400 mb-2"></i>
-                <span class="text-[10px] tracking-widest font-bold opacity-60 uppercase">Profile</span>
+                <span class="english-font text-[10px] tracking-widest opacity-60">PROFILE</span>
             </a>
         </div>
 
         <!-- 敘述 -->
-        <div class="pt-10 text-center animate-up" style="animation-delay: 0.8s">
-            <p class="text-[11px] leading-loose text-stone-400 italic font-light tracking-widest">
-                "Pure handmade joy, from our oven to your heart."<br>
-                每一份限量製作的驚喜，都值得您耐心等待。
+        <div class="pt-8 text-center animate-up" style="animation-delay: 0.8s">
+            <p class="text-[12px] leading-loose text-stone-400 font-medium tracking-wide">
+                每一份限量製作的驚喜，都值得您耐心等待。<br>
+                <span class="english-font opacity-60">Pure handmade joy for you.</span>
             </p>
         </div>
     </main>
 
     <!-- 頁尾 -->
     <footer class="pb-16 text-center animate-up" style="animation-delay: 0.9s">
-        <p class="english-font text-[10px] tracking-[0.5em] text-stone-300">© 2024 J.CAKE CONCEPT STORE</p>
+        <p class="english-font text-[10px] tracking-[0.4em] text-stone-300">© 2024 J.CAKE CONCEPT STORE</p>
     </footer>
 
     <script>
@@ -214,23 +248,23 @@
             
             // 更新日期展示
             const dateStr = `${days[dayNum]} / ${now.getMonth() + 1}.${now.getDate()}`;
-            document.getElementById('current-date').innerText = dateStr;
+            const dateElem = document.getElementById('current-date');
+            if(dateElem) dateElem.innerText = dateStr;
 
             // 高亮今日卡片
             const todayCard = document.getElementById('day-' + dayNum);
             if (todayCard) {
                 todayCard.classList.add('active-day-minimal');
                 
-                // 簡約的今日標記
+                // 圓潤的今日標記
                 const dot = document.createElement('div');
-                dot.className = 'absolute top-4 right-4 flex h-2 w-2';
+                dot.className = 'absolute top-4 right-4 flex h-2.5 w-2.5';
                 dot.innerHTML = `
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-stone-300 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-stone-400"></span>
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-stone-200 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-stone-300"></span>
                 `;
                 todayCard.appendChild(dot);
                 
-                // 向下輕微滾動
                 setTimeout(() => {
                     todayCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }, 1000);
