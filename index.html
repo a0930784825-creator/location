@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* 載入圓潤風格的字體 */
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap');
         
         :root {
@@ -49,7 +48,6 @@
             transform: scale(0.9);
         }
 
-        /* 模擬圓體外觀 */
         h1, h2, p, span {
             letter-spacing: 0.02em;
         }
@@ -96,7 +94,7 @@
                     </p>
                 </div>
             </div>
-            <a href="https://maps.app.goo.gl/3fR6yV3ZJ7YkRjG77" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-50 text-gray-400 hover:bg-amber-100 hover:text-amber-600 transition-all">
+            <a href="https://www.google.com/maps/search/?api=1&query=雅潭夜市" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-50 text-gray-400 hover:bg-amber-100 hover:text-amber-600 transition-all">
                 <i class="fa-solid fa-chevron-right"></i>
             </a>
         </div>
@@ -115,7 +113,7 @@
                     </p>
                 </div>
             </div>
-            <a href="https://maps.app.goo.gl/7L7y7xXvD9V9V9V9" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-50 text-gray-400 hover:bg-amber-100 hover:text-amber-600 transition-all">
+            <a href="https://www.google.com/maps/search/?api=1&query=東勢夜市" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-50 text-gray-400 hover:bg-amber-100 hover:text-amber-600 transition-all">
                 <i class="fa-solid fa-chevron-right"></i>
             </a>
         </div>
@@ -134,7 +132,7 @@
                     </p>
                 </div>
             </div>
-            <a href="https://maps.app.goo.gl/yY7Y7xXvD9V9V9V9" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-50 text-gray-400 hover:bg-amber-100 hover:text-amber-600 transition-all">
+            <a href="https://www.google.com/maps/search/?api=1&query=總站夜市" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-50 text-gray-400 hover:bg-amber-100 hover:text-amber-600 transition-all">
                 <i class="fa-solid fa-chevron-right"></i>
             </a>
         </div>
@@ -180,17 +178,12 @@
             const now = new Date();
             const days = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
             const dayNum = now.getDay();
-            
-            // 顯示當前日期
             const dateString = `${now.getMonth() + 1}月${now.getDate()}日 ${days[dayNum]}`;
             document.getElementById('current-date').innerText = '今日：' + dateString;
 
-            // 高亮邏輯
             const todayCard = document.getElementById('day-' + dayNum);
             if (todayCard) {
                 todayCard.classList.add('active-day');
-                
-                // 插入今日標籤
                 const badge = document.createElement('div');
                 badge.className = 'absolute -top-3 left-6 bg-amber-600 text-white text-[10px] px-3 py-1 rounded-full font-bold shadow-lg z-30 flex items-center';
                 badge.innerHTML = '<span class="relative flex h-2 w-2 mr-1.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span></span> 今日出攤中';
